@@ -97,6 +97,73 @@ public class CalculatorTest {
         // Assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
+    public void ensureSubPositiveNumbers() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = 10;
+        int secondOperand = 5;
+        int expectedResult = 5;
+
+        // Act
+        int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    @Test
+    public void ensureSubMixedNumbers() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = 10;
+        int secondOperand = -5;
+        int expectedResult = -5;
+
+        // Act
+        int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    public void ensureSubNegativNumbers() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = -5;
+        int secondOperand = -5;
+        int expectedResult = 0;
+
+        // Act
+        int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+    public void ensureSubZero() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = 5;
+        int secondOperand = 0;
+        int expectedResult = 5;
+
+        // Act
+        int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
 }
 
 
