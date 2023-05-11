@@ -18,7 +18,7 @@ public class Calculator {
     }
 
     public int subtract(int firstOperand, int secondOperand) {
-        throw new UnsupportedOperationException();
+        return firstOperand - secondOperand;
     }
 
     public int divide(int dividend, int divisor) {

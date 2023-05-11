@@ -47,6 +47,12 @@
             <version>${junit.jupiter.api}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
 
         <!-- Javadoc plugin does not require to be explicitly stated-->
         <!-- Maven goal: mvn clean javadoc:javadoc javadoc:test-javadoc -->
