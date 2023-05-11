@@ -73,3 +73,7 @@ mvn test jacoco:report org.pitest:pitest-maven:mutationCoverage -DhistoryInputFi
 ### firstOperand = 5 ; secondOperand = -5 ; result = 0
 ### firstOperand = 5 ; secondOperand = -10 ; result = -5
 
+##Substraction
+### firstOperand = 10 ; secondOperand = 5 ; result = 5
+### firstOperand = -10 ; secondOperand = 5 ; 
+
