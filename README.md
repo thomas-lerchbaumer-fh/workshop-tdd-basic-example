@@ -72,6 +72,36 @@ mvn test jacoco:report org.pitest:pitest-maven:mutationCoverage -DhistoryInputFi
 ### firstOperand = 5 ; secondOperand = 5 ; result = 10
 ### firstOperand = 5 ; secondOperand = -5 ; result = 0
 ### firstOperand = 5 ; secondOperand = -10 ; result = -5
+### firstOperand = -2 ; secondOperand = -2 ; result = -4
+### firstoperand 2^100 ; secondoperand 2^10 ; result = exception (int size)
+### firstOperand 2.5; secondOperand 2 ; result --> excetption only int allowed
+
+
+## Mul
+### firstOperand = 5; SecondOperand = 2 ; result = 10
+### firstOPerand = 5 ; secondOperand = 0 ; result = 0; 
+### firstOperand = 0 ; secondOperand = 0; result = 0
+### firstOperand = 0 ; secondOperand = 1 ; result 0
+### firstOperand = -2 ; secondOperand = 2 ; result = -4 
+### firstOPerand = -2 ; secondOperand = -2 ; result = 4
+### fisrtOperand = 2 ; secondOperand = -2 ; result = 4
+### firstoperand 2^100 ; secondoperand 2^10 ; result = exception (int size)
+### firstOperand 2.5; secondOperand 2 ; result --> exception only int allowed
+
+## Div
+### firstOperand 0 ; secondOperand = 4 ; result = 0
+### firstOperand 1 ; secondOperand = 0 ; result exception div by 0
+### firstOperand 2 ; secondOperand = 2 ; result = 1 
+### FirstOperand -5 ; secondOperand = -2 ; result = 3 (rounded up)
+### firstOperand -4 ; secondOperand = 2 ; result = -2
+### firstOperand 2; secondOperand 2.5 ; result --> excetption only int allowed
+### firstOperand 2; secondOperand 2.5 ; result --> excetption only int allowed
+### firstoperand 2^100 ; secondoperand 2^10 ; result = exception (int size)
+
+
+
+
+
 
 ##Substraction
 ### firstOperand = 10 ; secondOperand = 5 ; result = 5
