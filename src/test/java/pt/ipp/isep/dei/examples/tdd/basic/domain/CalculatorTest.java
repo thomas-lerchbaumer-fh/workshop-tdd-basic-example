@@ -170,35 +170,18 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testSubtractionWithIntegers() {
-        int result = subtract(10, 5);
-        assertEquals(5, result);
-        }
-
-        @Test(expected = IllegalArgumentException.class)
-        public void testSubtractionWithNonIntegerParameter() {
-            subtract(10, 3.5);
-        }
-        private int subtract(int a, int b) {
-            if (!(a instanceof Integer) || !(b instanceof Integer)) {
-                throw new IllegalArgumentException("Only integers are allowed");
-            }
-            return a - b;
-        }
-
-    @Test
-    public void ensureSubMixedNumbers() {
+    public void ensureMultiplyPositiv() {
         //HACK: for demonstration purposes only
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
 
         // Arrange
-        int firsOperand = 10;
-        int secondOperand = -5;
-        int expectedResult = 5;
+        int firsOperand = 2;
+        int secondOperand = 4;
+        int expectedResult = 8;
 
         // Act
-        int result = new Calculator().subtract(firsOperand, secondOperand);
+        int result = new Calculator().multiply(firsOperand, secondOperand);
 
         // Assert
         assertEquals(expectedResult, result);
