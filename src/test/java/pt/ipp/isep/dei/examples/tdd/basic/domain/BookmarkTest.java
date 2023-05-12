@@ -1,6 +1,7 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.*;
+import java.net.MalformedURLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,21 +26,63 @@ public class BookmarkTest {
         //Act
         boolean result = bookmark.isValidURL();
         //Assert
-        assertEquals(result, true);
+        assertTrue(result);
 
     }
 
     @Test
-    public void test() {
+    public void checkNonValidURL() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
-        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark = new Bookmark("Invalid URL");
         //Act
-        //boolean result = bookmark.isValidURL();
+        boolean result = bookmark.isValidURL();
         //Assert
-        assertTrue(true);
+        assertFalse(result);
+    }
 
+    @Test
+    public void addValidBookmarkToUser() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+
+        //Act
+        user.addBookmark(bookmark);
+        //Assert
+        assertEquals(1, user.getBookmarks().size());
+    }
+
+
+   @Test
+    public void addInvalidBookmarkToUser(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("Invalid Url");
+        //Act
+        user.addBookmark(bookmark);
+        //Assert
+        assertEquals(0, user.getBookmarks().size());
+    }
+
+    @Test
+    public void addMultipleValidBookmarksToUser(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.youtube.com");
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
+        //Act
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        //Assert
+        assertEquals(2, user.getBookmarks().size());
     }
 
     @Test
@@ -80,5 +123,9 @@ public class BookmarkTest {
         assertTrue(result);
 
     }
+
+}
+
+
 
 }
