@@ -43,6 +43,19 @@ public class BookmarkTest {
         assertFalse(result);
     }
 
+    @Test
+    public void addBookmarkToUser() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        //Act
+        user.addBookmark(bookmark);
+        //Assert
+        assertEquals(1, user.getBookmarks().size());
+    }
+
 
 
 }
