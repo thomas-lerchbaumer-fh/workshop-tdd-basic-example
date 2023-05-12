@@ -95,15 +95,15 @@ mvn test jacoco:report org.pitest:pitest-maven:mutationCoverage -DhistoryInputFi
 ### FirstOperand -5 ; secondOperand = -2 ; result = 3 (rounded up)
 ### firstOperand -4 ; secondOperand = 2 ; result = -2
 ### firstOperand 2; secondOperand 2.5 ; result --> excetption only int allowed
-### firstOperand 2; secondOperand 2.5 ; result --> excetption only int allowed
+### firstOperand 2.5; secondOperand 2 ; result --> excetption only int allowed
 ### firstoperand 2^100 ; secondoperand 2^10 ; result = exception (int size)
 
 
-
-
-
-
-##Substraction
+## Sub
 ### firstOperand = 10 ; secondOperand = 5 ; result = 5
-### firstOperand = -10 ; secondOperand = 5 ; 
-
+### firstOperand = 10 ; secondOperand = -5 ; result = -15
+### firstOperand = -5 ; secondOperand = -5 ; result = 0
+### firstOperand = 5 ; secondOperand = 0 ; result = 5
+### firstOperand = 2.5 ; secondOperand = 2 ; result --> exception onl int allowed
+### firstOperand = 2 ; secondOperand = 2.5 ; result --> exception onl int allowed
+### firstoperand 2^100 ; secondoperand 2^10 ; result = exception (int size)
