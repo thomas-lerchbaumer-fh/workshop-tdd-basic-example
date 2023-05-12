@@ -2,8 +2,9 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.net.MalformedURLException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BookmarkTest {
 
@@ -26,21 +27,20 @@ public class BookmarkTest {
         //Act
         boolean result = bookmark.isValidURL();
         //Assert
-        assertEquals(result, true);
+        assertTrue(result);
 
     }
 
     @Test
-    public void test() {
+    public void checkNonValidURL() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
-        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark = new Bookmark("Invalid URL");
         //Act
-        //boolean result = bookmark.isValidURL();
+        boolean result = bookmark.isValidURL();
         //Assert
-        assertTrue(true);
-
+        assertFalse(result);
     }
 
 
