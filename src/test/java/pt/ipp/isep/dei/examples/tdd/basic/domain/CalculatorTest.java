@@ -124,7 +124,7 @@ public class CalculatorTest {
         // Arrange
         int firsOperand = 10;
         int secondOperand = -5;
-        int expectedResult = -5;
+        int expectedResult = 5;
 
         // Act
         int result = new Calculator().subtract(firsOperand, secondOperand);
@@ -132,6 +132,8 @@ public class CalculatorTest {
         // Assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
     public void ensureSubNegativNumbers() {
         //HACK: for demonstration purposes only
         System.out.println("\t\tExecuting " + new Object() {
@@ -148,6 +150,8 @@ public class CalculatorTest {
         // Assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
     public void ensureSubZero() {
         //HACK: for demonstration purposes only
         System.out.println("\t\tExecuting " + new Object() {
@@ -160,6 +164,24 @@ public class CalculatorTest {
 
         // Act
         int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void ensureMultiplyPositiv() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = 2;
+        int secondOperand = 4;
+        int expectedResult = 8;
+
+        // Act
+        int result = new Calculator().multiply(firsOperand, secondOperand);
 
         // Assert
         assertEquals(expectedResult, result);
