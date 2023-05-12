@@ -71,6 +71,7 @@ public class BookmarkTest {
         assertEquals(0, user.getBookmarks().size());
     }
 
+    @Test
     public void addMultipleValidBookmarksToUser(){
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
@@ -80,6 +81,7 @@ public class BookmarkTest {
         Bookmark bookmark1 = new Bookmark("https://www.google.com");
         //Act
         user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
         //Assert
         assertEquals(2, user.getBookmarks().size());
 
