@@ -185,6 +185,23 @@ public class CalculatorTest {
             }
             return a - b;
         }
+
+    @Test
+    public void ensureSubMixedNumbers() {
+        //HACK: for demonstration purposes only
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+
+        // Arrange
+        int firsOperand = 10;
+        int secondOperand = -5;
+        int expectedResult = 5;
+
+        // Act
+        int result = new Calculator().subtract(firsOperand, secondOperand);
+
+        // Assert
+        assertEquals(expectedResult, result);
     }
 }
 
