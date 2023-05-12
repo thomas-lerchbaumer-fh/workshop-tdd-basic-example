@@ -12,7 +12,7 @@ public class User {
     }
 
     public void addBookmark(Bookmark bookmark) {
-        this.bookmarks.add(bookmark);
+           if (bookmark.isValidURL()) this.bookmarks.add(bookmark);
     }
 
     public List<Bookmark> getBookmarks(){

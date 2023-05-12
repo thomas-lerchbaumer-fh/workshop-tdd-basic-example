@@ -44,12 +44,13 @@ public class BookmarkTest {
     }
 
     @Test
-    public void addBookmarkToUser() {
+    public void addValidBookmarkToUser() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
         User user = new User("John");
         Bookmark bookmark = new Bookmark("https://www.google.com");
+
         //Act
         user.addBookmark(bookmark);
         //Assert
@@ -57,5 +58,17 @@ public class BookmarkTest {
     }
 
 
+   @Test
+    public void addInvalidBookmarkToUser(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("Invalid Url");
+        //Act
+        user.addBookmark(bookmark);
+        //Assert
+        assertEquals(0, user.getBookmarks().size());
+    }
 
 }
