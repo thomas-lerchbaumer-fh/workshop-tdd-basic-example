@@ -47,6 +47,7 @@ public class BookmarkTest {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
+
         User user = new User("John");
         Bookmark bookmark = new Bookmark("https://www.google.com");
 
@@ -126,6 +127,3 @@ public class BookmarkTest {
 
 }
 
-
-
-}
