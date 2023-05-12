@@ -2,8 +2,7 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BookmarkTest {
 
@@ -43,6 +42,43 @@ public class BookmarkTest {
 
     }
 
+    @Test
+    public void checkKeywordLength() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        Keyword keyword = new Keyword("google");
+        boolean result = keyword.isValidLength();
+        //Bookmark keyword = new Bookmark.keyword();
 
+        //Act
+        assertTrue(result);
+
+    }
+    @Test
+    public void checkKeywordLengthBelowThree() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        //Act
+        assertThrows(IllegalArgumentException.class,()->{
+            Keyword key = new Keyword("ie");
+            key.isValidLength();
+        });
+
+    }
+    @Test
+    public void checkKeywordLengthExactThree() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        Keyword keyword = new Keyword("eis");
+        boolean result = keyword.isValidLength();
+        //Bookmark keyword = new Bookmark.keyword();
+
+        //Act
+        assertTrue(result);
+
+    }
 
 }
