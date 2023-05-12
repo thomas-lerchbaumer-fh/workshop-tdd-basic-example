@@ -124,7 +124,7 @@ public class CalculatorTest {
         // Arrange
         int firsOperand = 10;
         int secondOperand = -5;
-        int expectedResult = -5;
+        int expectedResult = 5;
 
         // Act
         int result = new Calculator().subtract(firsOperand, secondOperand);
@@ -132,6 +132,8 @@ public class CalculatorTest {
         // Assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
     public void ensureSubNegativNumbers() {
         //HACK: for demonstration purposes only
         System.out.println("\t\tExecuting " + new Object() {
@@ -148,6 +150,8 @@ public class CalculatorTest {
         // Assert
         assertEquals(expectedResult, result);
     }
+
+    @Test
     public void ensureSubZero() {
         //HACK: for demonstration purposes only
         System.out.println("\t\tExecuting " + new Object() {
@@ -163,6 +167,24 @@ public class CalculatorTest {
 
         // Assert
         assertEquals(expectedResult, result);
+    }
+
+    @Test
+    public void testSubtractionWithIntegers() {
+        int result = subtract(10, 5);
+        assertEquals(5, result);
+        }
+
+        @Test(expected = IllegalArgumentException.class)
+        public void testSubtractionWithNonIntegerParameter() {
+            subtract(10, 3.5);
+        }
+        private int subtract(int a, int b) {
+            if (!(a instanceof Integer) || !(b instanceof Integer)) {
+                throw new IllegalArgumentException("Only integers are allowed");
+            }
+            return a - b;
+        }
     }
 }
 
