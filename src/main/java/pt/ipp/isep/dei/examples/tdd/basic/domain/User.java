@@ -1,6 +1,5 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
-import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class User {
 
     public void addBookmark(Bookmark bookmark) {
            if (bookmark.isValidURL()){
-               if(this.checkForDuplicates(bookmark)){
+               if(!this.isDuplicate(bookmark)){
                    this.bookmarks.add(bookmark);
                }
 
@@ -26,14 +25,14 @@ public class User {
         return this.bookmarks;
     }
 
-    public boolean checkForDuplicates(Bookmark bookmark){
+    public boolean isDuplicate(Bookmark bookmark){
         for (Bookmark value : bookmarks) {
             if (value.url.equals(bookmark.url)) {
                 value.setRanking();
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 }

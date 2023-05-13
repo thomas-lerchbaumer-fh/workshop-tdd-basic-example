@@ -1,7 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.*;
-import java.net.MalformedURLException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -132,19 +131,19 @@ public class BookmarkTest {
     //rating of that bookmark, because no exact
     //duplicates should exist
     @Test
-    public void checkDuplicateBookmark() {
+    public void checkDuplicateBookmarkIsDuplicate() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
 
         User user = new User("John");
         Bookmark bookmark = new Bookmark("https://www.google.com");
-
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
         //Act
         user.addBookmark(bookmark);
 
         //Assert
-        assertTrue(user.checkForDuplicates(bookmark) );
+        assertTrue(user.isDuplicate(bookmark1));
     }
 
 
