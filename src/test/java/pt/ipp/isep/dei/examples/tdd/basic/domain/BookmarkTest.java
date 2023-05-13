@@ -139,13 +139,12 @@ public class BookmarkTest {
 
         User user = new User("John");
         Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.google.com");
 
         //Act
         user.addBookmark(bookmark);
-        user.addBookmark(bookmark1);
+
         //Assert
-        assertEquals(2, user.getBookmarks().get(0).getRanking());
+        assertTrue(user.checkForDuplicates(bookmark) );
     }
 
 

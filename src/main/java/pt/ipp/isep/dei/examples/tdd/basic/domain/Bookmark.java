@@ -8,7 +8,16 @@ import java.util.List;
 public class Bookmark {
     String url;
     List<Keyword> tags;
+    Integer ranking = 0;
 
+
+    public Integer getRanking() {
+        return this.ranking;
+    }
+
+    public void setRanking(){
+        this.ranking = this.ranking + 1;
+    }
 
     public Bookmark(String url) {
         this.url = url;
