@@ -51,10 +51,10 @@ public class UserTest {
         Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
         //Act
         user.addBookmark(bookmark);
-
         //Assert
         assertFalse(user.isDuplicate(bookmark1));
-
     }
+
+
 
 }
