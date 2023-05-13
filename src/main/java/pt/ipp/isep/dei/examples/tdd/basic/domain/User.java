@@ -16,6 +16,7 @@ public class User {
            if (bookmark.isValidURL()){
                if(!this.isDuplicate(bookmark)){
                    this.bookmarks.add(bookmark);
+                   //
                }
 
            }
