@@ -2,7 +2,7 @@
 
 This project shows a basic TDD example with some of the most common annotations.
 
-This project used Java and Maven. Testicals
+This project used Java and Maven. Testicalsios
 
 We have to declare the maven-surefire-plugin in the pom.xml file and configure the dependencies of this plugin. 
 
