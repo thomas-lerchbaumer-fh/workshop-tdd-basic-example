@@ -126,5 +126,28 @@ public class BookmarkTest {
 
     }
 
+
+    //US03. As a user when I add a duplicate
+    //bookmark, I want the system to increase the
+    //rating of that bookmark, because no exact
+    //duplicates should exist
+    @Test
+    public void checkDuplicateBookmark() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
+
+        //Act
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        //Assert
+        assertEquals(2, user.getBookmarks().get(0).getRanking());
+    }
+
+
 }
 
