@@ -152,6 +152,8 @@
                         <param>lapr.project.model.*</param>
                         <param>lapr.project.utils.*</param>
                     </inScopeClasses>-->
+                    <coverageThreshold>70</coverageThreshold>
+                    <mutationThreshold>70</mutationThreshold>
                     <targetClasses>
                         <!-- Example: <param>lapr.project.model.*</param> -->
                         <param>pt.ipp.isep.dei.examples.tdd.basic.domain.*</param>
