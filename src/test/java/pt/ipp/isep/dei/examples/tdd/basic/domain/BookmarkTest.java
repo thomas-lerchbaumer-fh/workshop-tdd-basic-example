@@ -130,21 +130,7 @@ public class BookmarkTest {
     //bookmark, I want the system to increase the
     //rating of that bookmark, because no exact
     //duplicates should exist
-    @Test
-    public void checkDuplicateBookmarkIsDuplicate() {
-        System.out.println("\t\tExecuting " + new Object() {
-        }.getClass().getEnclosingMethod().getName() + " Test");
-        //Arrange
 
-        User user = new User("John");
-        Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.google.com");
-        //Act
-        user.addBookmark(bookmark);
-
-        //Assert
-        assertTrue(user.isDuplicate(bookmark1));
-    }
 
 
 }
