@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
+import java.awt.print.Book;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -31,6 +32,13 @@ public class Bookmark {
             return false;
         }
     }
+
+    public void addTag(Keyword keyword){
+        if(keyword.isValidLength()) {
+            this.tags.add(keyword);
+        }
+    }
+
 
 
 }

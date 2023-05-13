@@ -117,11 +117,22 @@ public class BookmarkTest {
         //Arrange
         Keyword keyword = new Keyword("eis");
         boolean result = keyword.isValidLength();
-        //Bookmark keyword = new Bookmark.keyword();
 
-        //addcomment
         //Act
         assertTrue(result);
+
+    }
+    @Test
+    public void checkTagtoUrlPossible() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        Bookmark bookmark = new Bookmark("https://google.com");
+        Keyword keyword = new Keyword("google");
+        bookmark.addTag(keyword);
+
+        //Act
+        assertEquals(1,bookmark.tags.size());
 
     }
 
