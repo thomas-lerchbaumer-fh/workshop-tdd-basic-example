@@ -120,6 +120,7 @@ public class BookmarkTest {
         boolean result = keyword.isValidLength();
         //Bookmark keyword = new Bookmark.keyword();
 
+        //addcomment
         //Act
         assertTrue(result);
 
