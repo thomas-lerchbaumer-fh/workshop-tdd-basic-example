@@ -157,11 +157,26 @@ public class BookmarkTest {
         user.addBookmark(bookmark);
         bookmark.addTag(keyword);
         //Act
-        List<Bookmark> result = user.filterByKeyword(keyword);
-
+        List<Bookmark> result = user.filterByKeyword("keyword");
 
         //Assert
         assertEquals(1, result.size());
+    }
+
+    @Test
+    public void noBookmarkShouldBeReturned(){
+        System.out.println("\t\tExecuting " + new Object(){}.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Keyword keyword = new Keyword("keyword");
+        user.addBookmark(bookmark);
+        bookmark.addTag(keyword);
+        //Act
+        List<Bookmark> result = user.filterByKeyword("keyword1");
+
+        //Assert
+        assertEquals(0, result.size());
     }
 
 
