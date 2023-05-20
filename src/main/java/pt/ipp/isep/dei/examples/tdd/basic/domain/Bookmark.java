@@ -4,11 +4,12 @@ import java.awt.print.Book;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bookmark {
     String url;
-    List<Keyword> tags;
+    List<Keyword> tags = new ArrayList<Keyword>();
     Integer ranking = 0;
 
 
