@@ -179,6 +179,28 @@ public class BookmarkTest {
         assertEquals(0, result.size());
     }
 
+    @Test
+    public void multipleBookmarksShouldBeReturned(){
+        System.out.println("\t\tExecuting " + new Object(){}.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
+        Bookmark bookmark2 = new Bookmark("https://www.google.com");
+        Keyword keyword = new Keyword("keyword");
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+        bookmark.addTag(keyword);
+        bookmark1.addTag(keyword);
+        bookmark2.addTag(keyword);
+        //Act
+        List<Bookmark> result = user.filterByKeyword("keyword");
+
+        //Assert
+        assertEquals(3, result.size());
+    }
+
 
 
 }
