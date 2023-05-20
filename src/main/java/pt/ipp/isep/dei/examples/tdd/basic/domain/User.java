@@ -26,6 +26,18 @@ public class User {
         return this.bookmarks;
     }
 
+
+    public List<Bookmark> filterByKeyword(String tag){
+        List<Bookmark> bookmarksByTag = new ArrayList<>();
+        for (Bookmark value : bookmarks) {
+            for (Keyword keyword : value.tags) {
+                if (keyword.keyword.equals(tag)) {
+                    bookmarksByTag.add(value);
+                }
+            }
+        }
+        return bookmarksByTag;
+    }
     public boolean isDuplicate(Bookmark bookmark){
         for (Bookmark value : bookmarks) {
             if (value.url.equals(bookmark.url)) {
