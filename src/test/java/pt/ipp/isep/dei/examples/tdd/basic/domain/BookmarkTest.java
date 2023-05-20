@@ -2,6 +2,8 @@ package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BookmarkTest {
@@ -141,6 +143,26 @@ public class BookmarkTest {
     //bookmark, I want the system to increase the
     //rating of that bookmark, because no exact
     //duplicates should exist
+
+    //US06. As a user I want to be able to filter
+    //bookmarks by one keyword -- by TL (Homework)
+
+    @Test
+    public void testIfBookmarkIsReturnedWhenSearchingViaTag(){
+        System.out.println("\t\tExecuting " + new Object(){}.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Keyword keyword = new Keyword("keyword");
+        user.addBookmark(bookmark);
+        bookmark.addTag(keyword);
+        //Act
+        List<Bookmark> result = user.filterByKeyword(keyword);
+
+
+        //Assert
+        assertEquals(1, result.size());
+    }
 
 
 
