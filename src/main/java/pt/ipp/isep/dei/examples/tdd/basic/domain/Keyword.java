@@ -7,6 +7,10 @@ public class Keyword {
         this.keyword = keyword;
     }
 
+    public String getKeyword(){
+        return this.keyword;
+    }
+
     public Boolean isValidLength(){
         if(this.keyword.length() < 3){
             throw new IllegalArgumentException();

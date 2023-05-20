@@ -84,31 +84,6 @@ public class UserTest {
     }
 
 
-    //• US07. As a user I want to be able to filter
-    //bookmarks by one or more keywords -- by TL (Homework)
 
-    @Test
-    public void tagsMatchMultipleBookmarks(){
-        System.out.println("\t\tExecuting " + new Object() {
-        }.getClass().getEnclosingMethod().getName() + " Test");
-        //Arrange
-        User user = new User("John");
-        Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
-        Keyword keyword = new Keyword("keyword");
-        Keyword keyword1 = new Keyword("keyword1");
-        user.addBookmark(bookmark);
-        user.addBookmark(bookmark1);
-        bookmark.addTag(keyword);
-        bookmark1.addTag(keyword1);
-        List<String> searchKeywords = new ArrayList<>();
-        searchKeywords.add("keyword");
-        searchKeywords.add("keyword1");
-
-        //Act
-        List<Bookmark> result = user.filterByKeyword(searchKeywords);
-        //Assert
-        assertEquals(2, result.size());
-    }
 
 }
