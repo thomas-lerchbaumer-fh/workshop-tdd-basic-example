@@ -85,52 +85,9 @@ public class UserTest {
 
 //US11. As a user I want to list my bookmarks
 //sorted by rating (highest to smallest) - TL Homework
-    @Test
-    public void checkIfBookmarksAreSortedByRating(){
-        System.out.println("\t\tExecuting " + new Object() {
-        }.getClass().getEnclosingMethod().getName() + " Test");
-        //Arrange
-
-        User user = new User("John");
-        Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
-        Bookmark bookmark3 = new Bookmark("https://www.yahoo.com");
-        user.addBookmark(bookmark);
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark3);
-        //Act
-        List<Bookmark> bookmarks = user.getBookmarks();
-        //Assert
-        assertEquals(0,bookmarks.get(0).getRanking());
-        assertEquals(0,bookmarks.get(1).getRanking());
-        assertEquals(0,bookmarks.get(2).getRanking());
-
-    }
 
     @Test
-    public void checkIfBookmarksAreSortedByRating2(){
-        System.out.println("\t\tExecuting " + new Object() {
-        }.getClass().getEnclosingMethod().getName() + " Test");
-        //Arrange
-
-        User user = new User("John");
-        Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
-        Bookmark bookmark3 = new Bookmark("https://www.yahoo.com");
-        user.addBookmark(bookmark);
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark3);
-        //Act
-        List<Bookmark> bookmarks = user.getBookmarks();
-        //Assert
-        assertEquals(0,bookmarks.get(0).getRanking());
-        assertEquals(0,bookmarks.get(1).getRanking());
-        assertEquals(0,bookmarks.get(2).getRanking());
-
-    }
-
-    @Test
-    public void checkIfBookmarksAreSortedByRating3() {
+    public void checkIfBookmarksAreSortedByRating() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange

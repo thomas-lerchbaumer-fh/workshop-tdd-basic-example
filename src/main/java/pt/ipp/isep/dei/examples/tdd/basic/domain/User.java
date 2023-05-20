@@ -48,6 +48,13 @@ public class User {
         return bookmarksByTag;
 
     }
+
+    public List<Bookmark> getBookmarksSortedByRating(){
+        List<Bookmark> bookmarksByRanking = new ArrayList<>();
+        bookmarksByRanking = this.bookmarks.stream().sorted((o1, o2) -> o2.getRanking().compareTo(o1.getRanking())).collect(Collectors.toList());
+        return bookmarksByRanking;
+    }
+
     public boolean isDuplicate(Bookmark bookmark){
         for (Bookmark value : bookmarks) {
             if (value.url.equals(bookmark.url)) {
