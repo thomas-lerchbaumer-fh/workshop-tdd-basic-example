@@ -42,7 +42,7 @@ public class User {
     }
 
 
-    public List<Bookmark> filterByKeywords(List<String> tags){
+    public List<Bookmark> filterByKeyword(List<String> tags){
         List<Bookmark> bookmarksByTag = new ArrayList<>();
         bookmarksByTag = this.bookmarks.stream().filter(bookmark -> bookmark.tags.stream().map(Keyword::getKeyword).anyMatch(tags::contains)).collect(Collectors.toList());
         return bookmarksByTag;

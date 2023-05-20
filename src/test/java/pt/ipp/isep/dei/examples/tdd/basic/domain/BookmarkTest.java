@@ -246,7 +246,7 @@ public class BookmarkTest {
         searchKeywords.add("keyword1");
 
         //Act
-        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
         //Assert
         assertEquals(2, result.size());
     }
@@ -270,7 +270,7 @@ public class BookmarkTest {
         searchKeywords.add("keyword3");
 
         //Act
-        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
         //Assert
         assertEquals(1, result.size());
     }
@@ -294,7 +294,7 @@ public class BookmarkTest {
         searchKeywords.add("keyword4");
 
         //Act
-        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
         //Assert
         assertEquals(0, result.size());
     }
@@ -323,7 +323,7 @@ public class BookmarkTest {
         searchKeywords.add("keyword1");
 
         //Act
-        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
         //Assert
         assertEquals(1, result.size());
 
@@ -353,7 +353,7 @@ public class BookmarkTest {
         searchKeywords.add("Keyword3");
 
         //Act
-        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
         //Assert
         assertEquals(1, result.size());
     }
