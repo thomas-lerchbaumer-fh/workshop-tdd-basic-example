@@ -251,6 +251,30 @@ public class BookmarkTest {
         assertEquals(2, result.size());
     }
 
+    @Test
+    public void tagsMatchSingleBookmark(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+        Keyword keyword = new Keyword("keyword");
+        Keyword keyword1 = new Keyword("keyword1");
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        bookmark.addTag(keyword);
+        bookmark1.addTag(keyword1);
+        List<String> searchKeywords = new ArrayList<>();
+        searchKeywords.add("keyword");
+        searchKeywords.add("keyword3");
+
+        //Act
+        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        //Assert
+        assertEquals(1, result.size());
+    }
+
 
 }
 
