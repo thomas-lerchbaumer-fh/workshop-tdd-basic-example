@@ -358,5 +358,28 @@ public class BookmarkTest {
         assertEquals(1, result.size());
     }
 
+    @Test
+    public void filterBookmarksWithNoTags(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+
+        List<String> searchKeywords = new ArrayList<>();
+        searchKeywords.add("KEYWORD");
+        searchKeywords.add("Keyword3");
+
+        //Act
+        List<Bookmark> result = user.filterByKeyword(searchKeywords);
+        //Assert
+        assertEquals(0, result.size());
+    }
+
+
 }
 
