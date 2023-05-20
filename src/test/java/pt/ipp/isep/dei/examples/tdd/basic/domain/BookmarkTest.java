@@ -185,8 +185,8 @@ public class BookmarkTest {
         //Arrange
         User user = new User("John");
         Bookmark bookmark = new Bookmark("https://www.google.com");
-        Bookmark bookmark1 = new Bookmark("https://www.google.com");
-        Bookmark bookmark2 = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+        Bookmark bookmark2 = new Bookmark("https://www.muugle.com");
         Keyword keyword = new Keyword("keyword");
         user.addBookmark(bookmark);
         user.addBookmark(bookmark1);

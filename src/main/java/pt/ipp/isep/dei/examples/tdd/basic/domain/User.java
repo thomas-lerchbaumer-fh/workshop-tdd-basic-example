@@ -29,7 +29,7 @@ public class User {
 
     public List<Bookmark> filterByKeyword(String tag){
         List<Bookmark> bookmarksByTag = new ArrayList<>();
-        for (Bookmark value : bookmarks) {
+        for (Bookmark value : this.bookmarks) {
             for (Keyword keyword : value.tags) {
                 if (keyword.keyword.equals(tag)) {
                     bookmarksByTag.add(value);
