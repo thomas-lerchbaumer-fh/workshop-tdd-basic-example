@@ -195,6 +195,18 @@ public class UserTest {
 
     }
 
+    @Test
+    public void checkIfEmptyBookmarkListIsLeftUntouched(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        List<Bookmark> expectedOrder = new ArrayList<>();
+        //Act
+        List<Bookmark> sortedBookmarks = user.getBookmarksSortedByRating();
+        //Assert
+        assertEquals(expectedOrder, sortedBookmarks);
 
+    }
 
 }
