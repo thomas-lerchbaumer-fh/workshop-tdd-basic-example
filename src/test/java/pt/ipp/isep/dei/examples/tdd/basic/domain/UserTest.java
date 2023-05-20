@@ -83,6 +83,83 @@ public class UserTest {
 
     }
 
+//US11. As a user I want to list my bookmarks
+//sorted by rating (highest to smallest) - TL Homework
+    @Test
+    public void checkIfBookmarksAreSortedByRating(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+        Bookmark bookmark3 = new Bookmark("https://www.yahoo.com");
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark3);
+        //Act
+        List<Bookmark> bookmarks = user.getBookmarks();
+        //Assert
+        assertEquals(0,bookmarks.get(0).getRanking());
+        assertEquals(0,bookmarks.get(1).getRanking());
+        assertEquals(0,bookmarks.get(2).getRanking());
+
+    }
+
+    @Test
+    public void checkIfBookmarksAreSortedByRating2(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+        Bookmark bookmark3 = new Bookmark("https://www.yahoo.com");
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark3);
+        //Act
+        List<Bookmark> bookmarks = user.getBookmarks();
+        //Assert
+        assertEquals(0,bookmarks.get(0).getRanking());
+        assertEquals(0,bookmarks.get(1).getRanking());
+        assertEquals(0,bookmarks.get(2).getRanking());
+
+    }
+
+    @Test
+    public void checkIfBookmarksAreSortedByRating3() {
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+
+        User user = new User("John");
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
+        Bookmark bookmark2 = new Bookmark("https://www.yahoo.com");
+        Bookmark bookmark3 = new Bookmark("https://www.muugle.com");
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark1);
+        //rating of 3
+        user.addBookmark(bookmark2);
+        user.addBookmark(bookmark2);
+        //rating of 2
+        user.addBookmark(bookmark3);
+        //rating of 1
+
+        List<Bookmark> expectedOrder = new ArrayList<>();
+        expectedOrder.add(bookmark1);
+        expectedOrder.add(bookmark2);
+        expectedOrder.add(bookmark3);
+
+
+        //Act
+        List<Bookmark> sortedBookmarks = user.getBookmarksSortedByRating();
+        //Assert
+        assertEquals(expectedOrder, sortedBookmarks);
+    }
 
 
 
