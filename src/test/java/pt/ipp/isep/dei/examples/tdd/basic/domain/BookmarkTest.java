@@ -299,5 +299,35 @@ public class BookmarkTest {
         assertEquals(0, result.size());
     }
 
+    @Test
+    public void bookmarksWithMultipleTagsOnlyReturnedOnce(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark = new Bookmark("https://www.google.com");
+        Bookmark bookmark1 = new Bookmark("https://www.yahoo.com");
+        Keyword keyword = new Keyword("keyword");
+        Keyword keyword1 = new Keyword("keyword1");
+        Keyword keyword3 = new Keyword("keyword3");
+
+        user.addBookmark(bookmark);
+        user.addBookmark(bookmark1);
+
+        bookmark.addTag(keyword);
+        bookmark.addTag(keyword1);
+        bookmark1.addTag(keyword3);
+
+        List<String> searchKeywords = new ArrayList<>();
+        searchKeywords.add("keyword");
+        searchKeywords.add("keyword1");
+
+        //Act
+        List<Bookmark> result = user.filterByKeywords(searchKeywords);
+        //Assert
+        assertEquals(1, result.size());
+
+    }
+
 }
 
