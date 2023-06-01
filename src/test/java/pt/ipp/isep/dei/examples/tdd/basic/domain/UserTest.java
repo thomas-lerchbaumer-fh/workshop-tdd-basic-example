@@ -96,12 +96,14 @@ public class UserTest {
         Bookmark bookmark1 = new Bookmark("https://www.google.com");
         Bookmark bookmark2 = new Bookmark("https://www.yahoo.com");
         Bookmark bookmark3 = new Bookmark("https://www.muugle.com");
+        user.addBookmark(bookmark2);
+        user.addBookmark(bookmark2);
+
         user.addBookmark(bookmark1);
         user.addBookmark(bookmark1);
         user.addBookmark(bookmark1);
         //rating of 3
-        user.addBookmark(bookmark2);
-        user.addBookmark(bookmark2);
+
         //rating of 2
         user.addBookmark(bookmark3);
         //rating of 1
@@ -129,12 +131,14 @@ public class UserTest {
         Bookmark bookmark2 = new Bookmark("https://www.yahoo.com");
         Bookmark bookmark3 = new Bookmark("https://www.muugle.com");
         user.addBookmark(bookmark1);
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark1);
+
         //rating of 3
         user.addBookmark(bookmark2);
         user.addBookmark(bookmark2);
         user.addBookmark(bookmark2);
+
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark1);
         //rating of 3
         user.addBookmark(bookmark3);
         //rating of 1
@@ -149,6 +153,39 @@ public class UserTest {
         List<Bookmark> sortedBookmarks = user.getBookmarksSortedByRating();
         //Assert
         assertEquals(expectedOrder, sortedBookmarks);
+    }
+
+    @Test
+    public void negativeCheckIfRatingsAreSorted(){
+        System.out.println("\t\tExecuting " + new Object() {
+        }.getClass().getEnclosingMethod().getName() + " Test");
+        //Arrange
+        User user = new User("John");
+        Bookmark bookmark1 = new Bookmark("https://www.google.com");
+        Bookmark bookmark2 = new Bookmark("https://www.yahoo.com");
+        Bookmark bookmark3 = new Bookmark("https://www.muugle.com");
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark1);
+        //rating of 3
+        user.addBookmark(bookmark2);
+        user.addBookmark(bookmark2);
+        user.addBookmark(bookmark2);
+        //rating of 3
+        user.addBookmark(bookmark3);
+        //rating of 1
+
+        List<Bookmark> expectedOrder = new ArrayList<>();
+
+        expectedOrder.add(bookmark2);
+        expectedOrder.add(bookmark1);
+        expectedOrder.add(bookmark3);
+
+
+        //Act
+        List<Bookmark> sortedBookmarks = user.getBookmarksSortedByRating();
+        //Assert
+        assertNotEquals(expectedOrder, sortedBookmarks);
 
     }
 
