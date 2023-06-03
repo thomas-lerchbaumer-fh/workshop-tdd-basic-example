@@ -87,6 +87,12 @@ public class BookmarkTest {
 
         assertEquals(expectedBookmarks, user.getBookmarks());
     }
+
+    @Test
+    void testCreatedAtNotNull() {
+        Bookmark bookmark = new Bookmark("https://www.example.com");
+        assertNotNull(bookmark.getCreatedAt());
+    }
     /**
      * Create a valid bookmark<p>
      * <p>
