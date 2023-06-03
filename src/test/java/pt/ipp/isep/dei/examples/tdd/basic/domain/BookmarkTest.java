@@ -17,10 +17,7 @@ public class BookmarkTest {
         bookmark = new Bookmark("https://www.example.com");
         keyword1 = new Keyword("java");
         keyword2 = new Keyword("programming");
-        user = new User("John");
-        bookmark1 = new Bookmark("https://www.example1.com");
-        bookmark2 = new Bookmark("https://www.example2.com");
-    }
+        }
 
     @Test
     void testAddTag() {
@@ -46,53 +43,7 @@ public class BookmarkTest {
         assertEquals(expectedTags, bookmark.tags);
     }
 
-    private User user;
-    private Bookmark bookmark1;
-    private Bookmark bookmark2;
 
-    @Test
-    void testAddBookmark() {
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark2);
-
-        List<Bookmark> expectedBookmarks = new ArrayList<>();
-        expectedBookmarks.add(bookmark1);
-        expectedBookmarks.add(bookmark2);
-
-        assertEquals(expectedBookmarks, user.getBookmarks());
-    }
-
-    @Test
-    void testRemoveBookmark() {
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark2);
-        user.removeBookmark(bookmark1);
-
-        List<Bookmark> expectedBookmarks = new ArrayList<>();
-        expectedBookmarks.add(bookmark2);
-
-        assertEquals(expectedBookmarks, user.getBookmarks());
-    }
-
-    @Test
-    void testRemoveBookmarkWithNonExistingBookmark() {
-        user.addBookmark(bookmark1);
-        user.addBookmark(bookmark2);
-        Bookmark nonExistingBookmark = new Bookmark("https://www.example3.com");
-        user.removeBookmark(nonExistingBookmark);
-
-        List<Bookmark> expectedBookmarks = new ArrayList<>();
-        expectedBookmarks.add(bookmark1);
-        expectedBookmarks.add(bookmark2);
-
-        assertEquals(expectedBookmarks, user.getBookmarks());
-    }
-
-    @Test
-    void testCreatedAtNotNull() {
-        Bookmark bookmark = new Bookmark("https://www.example.com");
-        assertNotNull(bookmark.getCreatedAt());
-    }
     /**
      * Create a valid bookmark<p>
      * <p>

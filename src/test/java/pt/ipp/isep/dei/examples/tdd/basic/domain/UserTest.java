@@ -1,5 +1,6 @@
 package pt.ipp.isep.dei.examples.tdd.basic.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,6 +17,55 @@ public class UserTest {
      * /rating of that bookmark, because no exact.<p>
      * Act: duplicates should exist.<p>
      */
+    private User user;
+    private Bookmark bookmark1;
+    private Bookmark bookmark2;
+
+    @BeforeEach
+    void setUp() {
+        user = new User("John");
+        bookmark1 = new Bookmark("https://www.example1.com");
+        bookmark2 = new Bookmark("https://www.example2.com");
+    }
+
+    @Test
+    void testAddBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark1);
+        expectedBookmarks.add(bookmark2);
+
+        assertEquals(expectedBookmarks, user.getBookmarks());
+    }
+
+    @Test
+    void testRemoveBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+        user.removeBookmark(bookmark1);
+
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark2);
+
+        assertEquals(expectedBookmarks, user.getBookmarks());
+    }
+
+    @Test
+    void testRemoveBookmarkWithNonExistingBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+        Bookmark nonExistingBookmark = new Bookmark("https://www.example3.com");
+        user.removeBookmark(nonExistingBookmark);
+
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark1);
+        expectedBookmarks.add(bookmark2);
+
+        assertEquals(expectedBookmarks, user.getBookmarks());
+    }
+
     @Test
     public void checkDuplicateBookmarkIsRankingIncrease() {
         System.out.println("\t\tExecuting " + new Object() {
