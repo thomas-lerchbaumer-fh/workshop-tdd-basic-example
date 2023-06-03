@@ -4,6 +4,7 @@ import java.awt.print.Book;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class Bookmark {
     String url;
     List<Keyword> tags = new ArrayList<Keyword>();
     Integer ranking = 0;
+    LocalDateTime createdAt;
 
 
     public Integer getRanking() {
@@ -40,6 +42,10 @@ public class Bookmark {
 
     public void removeTag(Keyword keyword) {
         this.tags.remove(keyword);
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return this.createdAt;
     }
 
 
