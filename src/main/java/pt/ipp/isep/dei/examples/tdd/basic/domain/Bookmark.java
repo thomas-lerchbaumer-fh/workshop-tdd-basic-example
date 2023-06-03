@@ -12,7 +12,6 @@ public class Bookmark {
     String url;
     List<Keyword> tags = new ArrayList<Keyword>();
     Integer ranking = 0;
-    LocalDateTime createdAt;
 
 
     public Integer getRanking() {
@@ -44,9 +43,7 @@ public class Bookmark {
         this.tags.remove(keyword);
     }
 
-    public LocalDateTime getCreatedAt() {
-        return this.createdAt;
-    }
+
 
 
 }
