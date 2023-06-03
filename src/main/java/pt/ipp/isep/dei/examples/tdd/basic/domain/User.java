@@ -24,6 +24,10 @@ public class User {
            }
     }
 
+    public void removeBookmark(Bookmark bookmark) {
+        this.bookmarks.remove(bookmark);
+    }
+
     public List<Bookmark> getBookmarks(){
         return this.bookmarks;
     }

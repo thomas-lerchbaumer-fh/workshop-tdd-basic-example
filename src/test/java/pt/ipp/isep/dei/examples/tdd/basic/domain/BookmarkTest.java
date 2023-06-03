@@ -17,6 +17,9 @@ public class BookmarkTest {
         bookmark = new Bookmark("https://www.example.com");
         keyword1 = new Keyword("java");
         keyword2 = new Keyword("programming");
+        user = new User("John");
+        bookmark1 = new Bookmark("https://www.example1.com");
+        bookmark2 = new Bookmark("https://www.example2.com");
     }
 
     @Test
@@ -46,13 +49,6 @@ public class BookmarkTest {
     private User user;
     private Bookmark bookmark1;
     private Bookmark bookmark2;
-
-    @BeforeEach
-    void setUp() {
-        user = new User("John");
-        bookmark1 = new Bookmark("https://www.example1.com");
-        bookmark2 = new Bookmark("https://www.example2.com");
-    }
 
     @Test
     void testAddBookmark() {
