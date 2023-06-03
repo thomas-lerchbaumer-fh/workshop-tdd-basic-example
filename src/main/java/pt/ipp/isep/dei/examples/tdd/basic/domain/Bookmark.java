@@ -35,9 +35,7 @@ public class Bookmark {
     }
 
     public void addTag(Keyword keyword){
-        if(keyword.isValidLength()) {
             this.tags.add(keyword);
-        }
     }
 
 

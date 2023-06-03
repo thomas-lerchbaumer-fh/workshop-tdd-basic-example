@@ -8,7 +8,54 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BookmarkTest {
+    private Bookmark bookmark;
+    private Keyword keyword1;
+    private Keyword keyword2;
 
+    @BeforeEach
+    void setUp() {
+        bookmark = new Bookmark("https://www.example.com");
+        keyword1 = new Keyword("java");
+        keyword2 = new Keyword("programming");
+    }
+
+    @Test
+    void testAddTag() {
+        bookmark.addTag(keyword1);
+        bookmark.addTag(keyword2);
+
+        List<Keyword> expectedTags = new ArrayList<>();
+        expectedTags.add(keyword1);
+        expectedTags.add(keyword2);
+
+        assertEquals(expectedTags, bookmark.getTags());
+    }
+
+    @Test
+    void testRemoveTag() {
+        bookmark.addTag(keyword1);
+        bookmark.addTag(keyword2);
+        bookmark.removeTag(keyword1);
+
+        List<Keyword> expectedTags = new ArrayList<>();
+        expectedTags.add(keyword2);
+
+        assertEquals(expectedTags, bookmark.getTags());
+    }
+
+    @Test
+    void testRemoveTagWithNonExistingTag() {
+        bookmark.addTag(keyword1);
+        bookmark.addTag(keyword2);
+        Keyword nonExistingTag = new Keyword("python");
+        bookmark.removeTag(nonExistingTag);
+
+        List<Keyword> expectedTags = new ArrayList<>();
+        expectedTags.add(keyword1);
+        expectedTags.add(keyword2);
+
+        assertEquals(expectedTags, bookmark.getTags());
+    }
 
 
     /**
@@ -89,19 +136,6 @@ public class BookmarkTest {
     }
 
     @Test
-    public void checkKeywordLength() {
-        System.out.println("\t\tExecuting " + new Object() {
-        }.getClass().getEnclosingMethod().getName() + " Test");
-        //Arrange
-        Keyword keyword = new Keyword("google");
-        boolean result = keyword.isValidLength();
-        //Bookmark keyword = new Bookmark.keyword();
-
-        //Act
-        assertTrue(result);
-
-    }
-    @Test
     public void checkKeywordLengthBelowThree() {
         System.out.println("\t\tExecuting " + new Object() {
         }.getClass().getEnclosingMethod().getName() + " Test");
@@ -109,7 +143,7 @@ public class BookmarkTest {
         //Act
         assertThrows(IllegalArgumentException.class,()->{
             Keyword key = new Keyword("ie");
-            key.isValidLength();
+
         });
 
     }
@@ -119,10 +153,9 @@ public class BookmarkTest {
         }.getClass().getEnclosingMethod().getName() + " Test");
         //Arrange
         Keyword keyword = new Keyword("eis");
-        boolean result = keyword.isValidLength();
 
         //Act
-        assertTrue(result);
+        assertEquals("eis",keyword.keyword);
 
     }
     @Test
