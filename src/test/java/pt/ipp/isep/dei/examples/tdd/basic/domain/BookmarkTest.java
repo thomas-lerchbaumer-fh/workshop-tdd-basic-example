@@ -28,7 +28,7 @@ public class BookmarkTest {
         expectedTags.add(keyword1);
         expectedTags.add(keyword2);
 
-        assertEquals(expectedTags, bookmark.getTags());
+        assertEquals(expectedTags, bookmark.tags);
     }
 
     @Test
@@ -40,24 +40,57 @@ public class BookmarkTest {
         List<Keyword> expectedTags = new ArrayList<>();
         expectedTags.add(keyword2);
 
-        assertEquals(expectedTags, bookmark.getTags());
+        assertEquals(expectedTags, bookmark.tags);
+    }
+
+    private User user;
+    private Bookmark bookmark1;
+    private Bookmark bookmark2;
+
+    @BeforeEach
+    void setUp() {
+        user = new User("John");
+        bookmark1 = new Bookmark("https://www.example1.com");
+        bookmark2 = new Bookmark("https://www.example2.com");
     }
 
     @Test
-    void testRemoveTagWithNonExistingTag() {
-        bookmark.addTag(keyword1);
-        bookmark.addTag(keyword2);
-        Keyword nonExistingTag = new Keyword("python");
-        bookmark.removeTag(nonExistingTag);
+    void testAddBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
 
-        List<Keyword> expectedTags = new ArrayList<>();
-        expectedTags.add(keyword1);
-        expectedTags.add(keyword2);
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark1);
+        expectedBookmarks.add(bookmark2);
 
-        assertEquals(expectedTags, bookmark.getTags());
+        assertEquals(expectedBookmarks, user.getBookmarks());
     }
 
+    @Test
+    void testRemoveBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+        user.removeBookmark(bookmark1);
 
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark2);
+
+        assertEquals(expectedBookmarks, user.getBookmarks());
+    }
+
+    @Test
+    void testRemoveBookmarkWithNonExistingBookmark() {
+        user.addBookmark(bookmark1);
+        user.addBookmark(bookmark2);
+        Bookmark nonExistingBookmark = new Bookmark("https://www.example3.com");
+        user.removeBookmark(nonExistingBookmark);
+
+        List<Bookmark> expectedBookmarks = new ArrayList<>();
+        expectedBookmarks.add(bookmark1);
+        expectedBookmarks.add(bookmark2);
+
+        assertEquals(expectedBookmarks, user.getBookmarks());
+    }
     /**
      * Create a valid bookmark<p>
      * <p>
