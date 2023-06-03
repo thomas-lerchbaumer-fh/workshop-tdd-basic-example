@@ -38,6 +38,9 @@ public class Bookmark {
             this.tags.add(keyword);
     }
 
+    public void removeTag(Keyword keyword) {
+        this.tags.remove(keyword);
+    }
 
 
 }
